@@ -1,0 +1,168 @@
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+body {
+  margin: 0;
+}
+header {
+  height: 450px;
+  background: url("../image/header-bg.png") no-repeat;
+  background-size: 100% auto;
+}
+header .header-title {
+  font-size: 40px;
+  color: white;
+  text-shadow: 0 0 50px hsla(0, 0%, 0%, 0.5);
+  text-align: center;
+  margin-top: 140px;
+}
+.nav-container {
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+}
+.nav-container .brand {
+  float: left;
+  position: absolute;
+  height: 30px;
+  width: 180px;
+  margin-top: 10px;
+  margin-left: 10px;
+  background-image: url("../image/home_logo.png");
+  background-size: cover;
+}
+.nav-container nav {
+  float: right;
+  max-width: 1000px;
+  font-size: 18px;
+}
+.nav-container nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-container nav ul li {
+  float: left;
+  position: relative;
+}
+.nav-container nav ul li a,
+.nav-container nav ul li a:visited {
+  display: block;
+  padding: 0 15px;
+  line-height: 50px;
+  color: white;
+  text-decoration: none;
+}
+.nav-container nav ul li button {
+  text-align: center;
+  background-color: gray;
+  border-radius: 10px;
+  margin-top: 2px;
+  height: 50px;
+  font-size: 18px;
+}
+.nav-container nav ul li button a,
+.nav-container nav ul li button a:visited {
+  line-height: 100%;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px 100px;
+}
+main h1 {
+  font-size: 32px;
+}
+main ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: large;
+}
+main ul li {
+  flex-basis: 25%;
+}
+main ul li img {
+  margin-top: 5px;
+}
+main #course-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+main #course-list .course {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 10px;
+}
+main #course-list .course img {
+  margin: 10px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+main #course-list .course .content {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+main #course-list .course .content .title {
+  margin: 0 0 8px 0;
+}
+footer {
+  height: 150px;
+  background-color: gainsboro;
+  padding: 20px 100px;
+}
+footer .footer-logo {
+  margin-top: 30px;
+  float: left;
+  display: flex;
+  gap: 10px;
+}
+footer .footer-logo p {
+  font-size: 24px;
+  line-height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #343434;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+footer .links-container {
+  float: right;
+  display: flex;
+  gap: 40px;
+}
+footer .links-container .linker .title {
+  font-size: 18px;
+  font-weight: bold;
+}
+footer .links-container .linker ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+footer .links-container .linker ul a,
+footer .links-container .linker ul a:visited {
+  display: block;
+  padding: 2px 0;
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+}

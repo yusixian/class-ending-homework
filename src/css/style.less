@@ -1,0 +1,178 @@
+@head-height:450px;
+@nav-height:50px;
+@nav-content-height: 1000px;
+@main-imageSize: 120px;
+@footer-logo-imageSize: 40px;
+@main-space: 100px; //左右的留白
+@footer-height:150px;
+
+@nav-font-color:white;
+@footer-font-color:black;
+@nav-font-size: 18px;
+@header-font-size: 40px;
+@main-h1-font-size: 32px;
+@footer-logo-fontSize: 24px;
+
+@nav-bgcolor:rgba(0,0,0,0.8);
+@footer-bgcolor: gainsboro;
+@footer-logo-color: #343434;
+@bgcolor: white;
+
+@head-bgimgURL: url("../image/header-bg.png");
+@logo-imgURL: url("../image/home_logo.png");
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+body {
+    margin: 0;
+}
+header {
+    height: @head-height;
+    background: @head-bgimgURL no-repeat;
+    background-size: 100% auto;
+    .header-title {
+        font-size: @header-font-size;
+        color: white;
+        text-shadow: 0 0 50px hsla(0,0%,0%, .5);
+        text-align: center;
+        margin-top: 140px;
+    }
+}
+.nav-container {
+    height: @nav-height;
+    background-color: @nav-bgcolor;
+    padding: 10px;
+    .brand {
+        float: left;
+        position: absolute;
+        height: @nav-height*0.6;
+        width: @nav-height*3.6;
+        margin-top: 10px;
+        margin-left: 10px;
+        background-image: @logo-imgURL;
+        background-size: cover;
+    }
+    nav {
+        float: right;
+        max-width: @nav-content-height;
+        font-size: @nav-font-size;
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                float: left;
+                position: relative;
+                a,a:visited {
+                    display: block;
+                    padding: 0 15px;
+                    line-height: @nav-height;
+                    color: @nav-font-color;
+                    text-decoration: none;
+                }
+                button {
+                    text-align: center;
+                    background-color: gray;
+                    border-radius: 10px;
+                    margin-top: 2px;
+                    height: 50px;
+                    font-size: @nav-font-size;
+                    a,a:visited {
+                        line-height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+main{
+    .flex-column();
+    gap: 30px;
+    padding: 10px @main-space; 
+    h1{
+        font-size: @main-h1-font-size;
+    }
+    ul {
+        display: flex;
+        justify-content: center;
+        gap:20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: large;
+        li {
+            flex-basis: 25%;
+            img {margin-top: 5px}
+        }
+    }
+    #course-list {
+        .flex-column();
+        gap:20px;
+        .course {
+            display:  flex;
+            justify-content: flex-start;
+            align-items: stretch;
+            gap:10px;
+            img {
+                margin: 10px;
+                width: @main-imageSize; height: @main-imageSize;
+                border-radius: 50%;
+            }
+            .content {
+                margin: 0;
+                .flex-column();
+                align-items: stretch;
+                .title{
+                    margin: 0 0 8px 0;
+                }
+            }
+        }
+    }
+}
+footer {
+    height: @footer-height;
+    background-color: @footer-bgcolor;
+    padding: 20px @main-space;
+    .footer-logo {
+        margin-top: 30px;
+        float: left;
+        display: flex;
+        gap:10px;
+        p {
+            font-size: @footer-logo-fontSize;
+            line-height: @footer-logo-imageSize;
+            width: @footer-logo-imageSize;
+            border-radius: 50%;
+            background-color: @footer-logo-color;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+    }
+    .links-container {
+        float: right;
+        display: flex;
+        gap:40px;
+        .linker{
+            .title {
+                font-size: 18px;
+                font-weight: bold;
+            }
+            ul {
+                .flex-column();
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                a,a:visited {
+                    display: block;
+                    padding: 2px 0;
+                    color: @footer-font-color;
+                    text-decoration: none;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
