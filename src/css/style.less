@@ -1,15 +1,19 @@
 @head-height:450px;
 @nav-height:50px;
 @nav-content-height: 1000px;
-@main-imageSize: 120px;
-@footer-logo-imageSize: 40px;
-@main-space: 100px; //左右的留白
+@regist-area-height: 140px; // 高度
 @footer-height:150px;
 
+@main-imageSize: 120px;
+@footer-logo-imageSize: 40px;
+@main-space: 100px; // 左右的留白
+@regist-area-space: 155px; // 左右的留白
+
+@shadow: 0 0 20px hsla(0,0%,0%, .5);
 @nav-font-color:white;
 @footer-font-color:black;
 @nav-font-size: 18px;
-@header-font-size: 40px;
+@header-font-size: 45px;
 @main-h1-font-size: 32px;
 @footer-logo-fontSize: 24px;
 
@@ -35,7 +39,7 @@ header {
     .header-title {
         font-size: @header-font-size;
         color: white;
-        text-shadow: 0 0 50px hsla(0,0%,0%, .5);
+        text-shadow: @shadow;
         text-align: center;
         margin-top: 140px;
     }
@@ -58,6 +62,9 @@ header {
         float: right;
         max-width: @nav-content-height;
         font-size: @nav-font-size;
+        @media screen and (max-width: 750px){
+            ul{visibility: hidden;}
+        }
         ul {
             list-style: none;
             margin: 0;
@@ -88,6 +95,7 @@ header {
     }
 }
 main{
+    margin-top: 80px;
     .flex-column();
     gap: 30px;
     padding: 10px @main-space; 
@@ -135,6 +143,9 @@ footer {
     height: @footer-height;
     background-color: @footer-bgcolor;
     padding: 20px @main-space;
+    @media screen and (max-width: 840px){
+        height: @footer-height*2;
+    }
     .footer-logo {
         margin-top: 30px;
         float: left;
@@ -174,5 +185,66 @@ footer {
                 }
             }
         }
+    }
+}
+
+@selecter-color:#f0f0f0;
+@selecter-hover-color:#bfbfbf;
+@btn-color: #2599ee;
+@selecter-font-size: 17px;
+@selecter-border: 2px solid @btn-color;
+.regist-area {
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    left: @regist-area-space;
+    right: @regist-area-space;
+    top: @head-height - @regist-area-height*0.5;
+    // width: calc(100%-@regist-area-space*2);
+    box-shadow: @shadow;
+    height: @regist-area-height;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    overflow: auto;
+    padding: 0 10px;
+    .selecter {
+        width: 60px;
+        flex-grow: 1;
+        font-size: @selecter-font-size;
+        font-weight: bold;
+        padding: 10px;
+        .flex-column();
+        align-items: stretch;
+        gap:10px;
+        input {
+            border-radius: 10px;
+            font-size: @selecter-font-size;
+            line-height: 40px;
+            border: 2px solid @selecter-color;
+            outline: none;
+            background-color: @selecter-color;
+        }
+        input:hover,input:active {
+            border: @selecter-border;
+        }
+    }
+    button {
+        border:2px solid @btn-color;
+        font-size: @selecter-font-size;
+        background-color: @btn-color;
+        color:white;
+        border-radius: 15px;
+        padding: 0 5px;
+        width: 100px;
+        height: 40px;
+        align-self: center;
+        line-height: 40px;
+    }
+    button:hover {
+        color: @btn-color;
+        background-color: white;
+        border: @selecter-border;
     }
 }
