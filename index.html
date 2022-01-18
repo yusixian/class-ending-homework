@@ -5,7 +5,7 @@
     <meta name="author" content="cos">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"> 
     <link href="src/css/style.css" rel="stylesheet" type="text/css" />
-    <script src="/src/index.js"></script>
+    <script type="module" src="/src/index.js"></script>
     <!-- <script src="/dist/bundle.js"></script> -->
     <title>结课作业</title>
 </head>
@@ -31,7 +31,7 @@
             </div>
             <div class="selecter">
                 选择您入学年份
-                <input type="text" id="date-choice" placeholder="请选择入学年份">
+                <input type="date" id="date-choice" placeholder="请选择入学年份">
             </div>
             <div class="selecter">
                 输入您的电子邮箱
@@ -54,26 +54,55 @@
         </section>
         <section>
             <h1 style="text-align: center;">课程安排</h1>
+            <div id="course-fliter">
+                 <ul>
+                    <li class="active" id="fliter-0"><a href="#course-list">全部</a></li>
+                    <li id="fliter-1"><a href="#course-list">HTML</a></li>
+                    <li id="fliter-2"><a href="#course-list">CSS</a></li>
+                    <li id="fliter-3"><a href="#course-list">JavaScript</a></li>
+                </ul>
+            </div>
             <section id="course-list">
-                <section class="course">
+                <section class="course" id="course-1">
                     <img src="src\image\exp-5.jpg" width=100% alt="exp-3">
                     <section class="content">
                         <h2 class="title">第一课 这里是课程名字</h2>
                         <article>这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要</article>
+                        <div class="label-bar">
+                            <p class="tag t1">HTML</p>
+                        </div>
                     </section>
                 </section>
-                <section class="course">
+                <section class="course" id="course-2">
                     <img src="src\image\exp-5.jpg" width=100% alt="exp-3">
                     <section class="content">
                         <h2 class="title">第二课 这里是课程名字</h2>
                         <article>这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要</article>
+                        <div class="label-bar">
+                            <p class="tag t2">CSS</p>
+                        </div>
                     </section>
                 </section>
-                <section class="course">
+                <section class="course" id="course-3">
                     <img src="src\image\exp-5.jpg" width=100% alt="exp-3">
                     <section class="content">
                         <h2 class="title">第三课 这里是课程名字</h2>
                         <article>这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要</article>
+                        <div class="label-bar">
+                            <p class="tag t3">JavaScript</p>
+                        </div>
+                    </section>
+                </section>
+                <section class="course" id="course-4">
+                    <img src="src\image\exp-5.jpg" width=100% alt="exp-3">
+                    <section class="content">
+                        <h2 class="title">第四课 这里是课程名字</h2>
+                        <article>这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要</article>
+                        <div class="label-bar">
+                            <p class="tag t1">HTML</p>
+                            <p class="tag t2">CSS</p>
+                            <p class="tag t3">JavaScript</p>
+                        </div>
                     </section>
                 </section>
             </section>

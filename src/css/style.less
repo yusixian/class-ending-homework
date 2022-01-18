@@ -193,6 +193,11 @@ footer {
 @btn-color: #2599ee;
 @selecter-font-size: 17px;
 @selecter-border: 2px solid @btn-color;
+@underline-space: 20px; 
+@underline-color: #8c8c8c; 
+@underline-active-color: #434343; 
+@underline: 2px solid @underline-color; 
+@underline-active: 4px solid @underline-active-color; 
 .regist-area {
     position: absolute;
     background-color: white;
@@ -206,12 +211,12 @@ footer {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     overflow: auto;
     padding: 0 10px;
     .selecter {
-        width: 60px;
-        flex-grow: 1;
+        flex-basis: 25%;
+        // width: 60px;
         font-size: @selecter-font-size;
         font-weight: bold;
         padding: 10px;
@@ -219,6 +224,7 @@ footer {
         align-items: stretch;
         gap:10px;
         input {
+            width: 100%;
             border-radius: 10px;
             font-size: @selecter-font-size;
             line-height: 40px;
@@ -231,13 +237,14 @@ footer {
         }
     }
     button {
+        flex-basis: 25%;
         border:2px solid @btn-color;
         font-size: @selecter-font-size;
         background-color: @btn-color;
         color:white;
         border-radius: 15px;
         padding: 0 5px;
-        width: 100px;
+        // width: 100px;
         height: 40px;
         align-self: center;
         line-height: 40px;
@@ -247,4 +254,66 @@ footer {
         background-color: white;
         border: @selecter-border;
     }
+}
+#course-fliter {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    ul { 
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border-bottom: @underline;
+        li {
+            float: left;
+            font-size: 16px;
+            margin: 0;
+            padding: 20px 10px;
+            margin-bottom: -3px;
+            text-align: center;
+            width: 80px;
+            &:hover {
+                a, a.vis{
+                    color: #2599ee;
+                }
+            }
+            a, a.vis{
+                color: @underline-color;
+                text-decoration: none;
+            }
+        }
+        
+        li:active {
+            .active();
+        }
+    }
+    .active {
+        font-weight: bold;
+        border-bottom: @underline-active;
+        a{color: @underline-active-color;}
+    }
+   
+}
+.label-bar {
+    display: flex;
+    align-self: flex-start;
+    .tag {
+        margin-right: 10px;
+        font-size: 14px;
+        padding: 0 15px;
+        border-radius: 8px;
+        line-height: 30px;
+    }
+    .t1 {
+        background-color: #abb7ff;
+        color: white;
+    }    
+    .t2 {
+        background-color: #407341;
+        color: white;
+    }    
+    .t3 {
+        background-color: #36516c;
+        color: white;
+    }    
 }
