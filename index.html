@@ -5,8 +5,8 @@
     <meta name="author" content="cos">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"> 
     <link href="src/css/style.css" rel="stylesheet" type="text/css" />
-    <!-- <script type="module" src="./src/index.js"></script> -->
-    <script src="/dist/bundle.js"></script>
+    <script type="module" src="./src/index.js"></script>
+    <!-- <script src="/dist/bundle.js"></script> -->
     <title>结课作业</title>
 </head>
 <body>
@@ -27,15 +27,20 @@
         <div class="regist-area">
             <div class="selecter">
                 选择您的学校
-                <input type="text" id="school-choice" placeholder="请选择学校">
+                <input type="text" id="school-picker" placeholder="请选择学校">
             </div>
             <div class="selecter">
-                选择您入学年份
-                <input type="date" id="date-choice" placeholder="请选择入学年份">
+                选择您的入学年份
+                <div id="date-picker" class="select">
+                    选择入学年份
+                    <div class="year-calendar">
+                        <div class="years"></div>
+                    </div>
+                </div>
             </div>
             <div class="selecter">
                 输入您的电子邮箱
-                <input type="email" id="email-input" placeholder="请输入您的电子邮箱">
+                <input type="email" id="email-picker" placeholder="请输入您的电子邮箱">
             </div>
             <button>报名</button>
         </div>
@@ -123,6 +128,17 @@
                         <article>这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要</article>
                         <div class="label-bar">
                             <p class="tag t2">CSS</p>
+                            <p class="tag t3">JavaScript</p>
+                        </div>
+                    </section>
+                </section>
+                <section class="course" id="course-7">
+                    <img src="src\image\exp-5.jpg" width=100% alt="exp-3">
+                    <section class="content">
+                        <h2 class="title">第七课 这里是课程名字</h2>
+                        <article>这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要,这里是课程内容的概要</article>
+                        <div class="label-bar">
+                            <p class="tag t1">HTML</p>
                             <p class="tag t3">JavaScript</p>
                         </div>
                     </section>

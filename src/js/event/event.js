@@ -1,4 +1,5 @@
 export default {
+    // step 2: 课程筛选事件
     displayCourseListAll(isHidden){
         let courseList = document.getElementById('course-list');
         let courses = courseList.getElementsByClassName('course');
@@ -32,5 +33,11 @@ export default {
             nowNode.className = 'active';
             this.refreshCourseList(id);
         }
+    }, // step 3:年份选择盒子事件
+    selectYear(year) {
+        let picker = document.getElementById('date-picker');
+        let childNodes = picker.childNodes;
+        childNodes[0].textContent = year;
+        picker.className = 'selected';
     }
 };

@@ -190,7 +190,6 @@ footer .links-container .linker ul a:visited {
   justify-content: center;
   align-items: stretch;
   flex-wrap: nowrap;
-  overflow: auto;
   padding: 0 10px;
 }
 .regist-area .selecter {
@@ -300,4 +299,107 @@ footer .links-container .linker ul a:visited {
 .label-bar .t3 {
   background-color: #36516c;
   color: white;
+}
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* 调用定义的动画（传入实参name）*/
+@keyframes myfadeIn {
+  0% {
+    opacity: 0;
+    /*初始状态 透明度为0*/
+  }
+  20% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+    /*中间状态 透明度为0.5*/
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+    /*结尾状态 透明度为1*/
+  }
+}
+/* 
+定义动画属性,此处只需引入需要的属性，不需要的不能引入，否则会报错 
+*/
+.year-calendar {
+  position: absolute;
+  top: 30px;
+  left: -2px;
+  width: 350px;
+  height: 150px;
+  background-color: white;
+  border: 2px solid #f0f0f0;
+  border-top: none;
+  border-radius: 10px;
+  box-shadow: 0px 15px 10px 5px rgba(100, 100, 111, 0.2);
+  padding: 30px 10px 5px;
+  display: none;
+}
+.year-calendar .years {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  color: var(--color-txt);
+}
+.year-calendar .years > div {
+  border-radius: 8px;
+  border: 2px solid white;
+}
+.year-calendar .years > div:hover {
+  border: 2px solid #2599ee;
+  font-weight: bold;
+}
+.select {
+  position: relative;
+  width: 100%;
+  font-weight: normal;
+  line-height: 40px;
+  text-align: center;
+  color: #757575;
+  border-radius: 10px;
+  border: 2px solid #f0f0f0;
+  background-color: #f0f0f0;
+}
+.select:hover {
+  background-color: white;
+}
+.select:hover > .year-calendar {
+  display: block;
+  animation: myfadeIn 0.1s 1;
+}
+.course {
+  animation: myfadeIn 0.5s 1;
+}
+.selected {
+  position: relative;
+  width: 100%;
+  font-weight: normal;
+  line-height: 40px;
+  text-align: center;
+  color: #757575;
+  border-radius: 10px;
+  border: 2px solid #f0f0f0;
+  background-color: #f0f0f0;
+  color: black;
+  background-color: white;
+}
+.selected:hover {
+  background-color: white;
+}
+.selected:hover > .year-calendar {
+  display: block;
+  animation: myfadeIn 0.1s 1;
 }

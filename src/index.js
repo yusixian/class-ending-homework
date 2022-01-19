@@ -10,6 +10,20 @@ window.onload = function() {// 加载完后执行脚本
             btnEvent.fliter(i, this);
         });
     }
+    let calendar = document.querySelector('.years')
+    // step3: 年份选择盒子
+    const startYear = 2010;
+    const endYear = 2021;
+    for(let i = startYear; i <= endYear; ++i) {
+        let year = document.createElement('div');
+        year.innerHTML = `${i}`;
+        year.addEventListener('click', function() {
+            console.log(`click ${this.innerHTML}`);
+            btnEvent.selectYear(parseInt(this.innerHTML));
+        });
+        calendar.appendChild(year);
+
+    }
 }
 
 

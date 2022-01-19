@@ -188,6 +188,7 @@ footer {
     }
 }
 
+// step2:选择区域&课程筛选
 @selecter-color:#f0f0f0;
 @selecter-hover-color:#bfbfbf;
 @btn-color: #2599ee;
@@ -212,7 +213,7 @@ footer {
     justify-content: center;
     align-items: stretch;
     flex-wrap: nowrap;
-    overflow: auto;
+    // overflow: auto;
     padding: 0 10px;
     .selecter {
         flex-basis: 25%;
@@ -317,4 +318,116 @@ footer {
         background-color: #36516c;
         color: white;
     }    
+}
+
+// step3:日期控件
+@picker-shadow:  0px 15px 10px 5px rgba(100, 100, 111, 0.2) ;
+@picker-bgcolor:  white;
+@picker-width:  350px;
+@picker-height:  150px;
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+.fadeIn(@DHname){
+    @keyframes @DHname {
+        0% {
+            opacity: 0; /*初始状态 透明度为0*/
+        }
+        20%{
+            opacity: .2;
+        }
+        50% {
+            opacity: .5; /*中间状态 透明度为0.5*/
+        }
+        70%{
+            opacity: .7;
+        }
+        100% {
+            opacity: 1; /*结尾状态 透明度为1*/
+        }
+    } 
+};
+
+/* 调用定义的动画（传入实参name）*/
+.fadeIn(myfadeIn); // 名称
+
+/* 
+定义动画属性,此处只需引入需要的属性，不需要的不能引入，否则会报错 
+*/
+.animation(@animation-name,@animation-duration,@animation-iteration-count){
+    animation:  @arguments;
+}
+// /* 在样式中引入animation（注意参数即属性）*/
+// .divBackGroud{
+//     width: 100%;
+//     height: 300px;
+//     background-color:red;
+//     .animation(myDongHua,5s,infinite); // 1|动画名 2|动画时间 3|播放函数(比如：循环等)
+// }
+.year-calendar {
+    position: absolute;
+    top: 30px;
+    left: -2px;
+    width: @picker-width;
+    height: @picker-height;
+
+    background-color: @picker-bgcolor;
+
+    border: 2px solid @selecter-color;
+    border-top: none;
+    border-radius: 10px;
+    box-shadow: @picker-shadow;
+
+    padding: 30px 10px 5px;
+    display: none;
+    .years {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+        color: var(--color-txt);
+        &>div {
+            border-radius: 8px;
+            border: 2px solid white;
+        }
+        &>div:hover {
+            border: @selecter-border;
+            font-weight: bold;
+        }
+    }
+}
+.select {
+    position: relative;
+    width: 100%;
+    font-weight: normal;
+    line-height: 40px;
+    text-align: center;
+
+    color: #757575;
+    border-radius: 10px;
+    border: 2px solid @selecter-color;
+    background-color: @selecter-color;
+    &:hover{
+        background-color: @picker-bgcolor;
+        &>.year-calendar {
+            display: block;
+            .animation(myfadeIn,0.1s,1);
+        }
+    }
+}
+//这里给之前的课程列表加了渐进动画
+.course {
+    .animation(myfadeIn,0.5s,1);
+}
+.selected {
+    .select();
+    color: black;
+    background-color: white;
 }
