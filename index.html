@@ -5,7 +5,6 @@
     <meta name="author" content="cos">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"> 
     <link href="src/css/style.css" rel="stylesheet" type="text/css" />
-    <script type="module" src="./src/index.js"></script>
     <!-- <script src="/dist/bundle.js"></script> -->
     <title>结课作业</title>
 </head>
@@ -25,11 +24,19 @@
         </div>
         <div class="header-title">百度前端训练营2021开营了，赶紧报名吧！</div>
         <div class="regist-area">
-            <div class="selecter">
+            <div class="selecter" style="width: 25%;">
                 选择您的学校
-                <input type="text" id="school-picker" placeholder="请选择学校">
+                <div id="school-picker" class="select">
+                    请选择学校
+                    <div class="school-container">
+                        <section>
+                            <div class="area-selecter"></div>
+                            <div class="schools"></div>
+                        </section>
+                    </div>
+                </div>
             </div>
-            <div class="selecter">
+            <div class="selecter" style="width: 20%;">
                 选择您的入学年份
                 <div id="date-picker" class="select">
                     选择入学年份
@@ -38,13 +45,20 @@
                     </div>
                 </div>
             </div>
-            <div class="selecter">
+            <div class="selecter" style="width: 35%;">
                 输入您的电子邮箱
                 <input type="email" id="email-picker" placeholder="请输入您的电子邮箱">
             </div>
-            <button>报名</button>
-        </div>
+            <div class="selecter" style="width: 20%;">
+                &nbsp;<button id="submit-btn" >报名</button>
+            </div>
+        </div> 
+        <div class="registed" style="display: none;">
+            <div>您已完成报名，开始您的学习之旅吧!</div>
+            <button id='re-regist-btn'>重新报名</button>
+        </div> 
     </header>
+    <div class="prompt" style="display: none;"></div>
     <main>
         <section>
             <h1>我们的宗旨</h1>
@@ -61,7 +75,7 @@
             <h1 style="text-align: center;">课程安排</h1>
             <div id="course-fliter">
                  <ul>
-                    <li class="active" id="fliter-0"><a href="#course-list">全部</a></li>
+                    <li class="active" id="fliter-0"><a href="javascript:">全部</a></li>
                     <li id="fliter-1"><a href="javascript:">HTML</a></li>
                     <li id="fliter-2"><a href="javascript:">CSS</a></li>
                     <li id="fliter-3"><a href="javascript:">JavaScript</a></li>
@@ -185,5 +199,6 @@
             </div>
         </div>
     </footer>
+    <script type="module" src="./src/index.js"></script>
 </body>
 </html>

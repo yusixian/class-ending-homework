@@ -73,7 +73,7 @@ header .header-title {
   line-height: 100%;
 }
 main {
-  margin-top: 80px;
+  margin-top: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -187,13 +187,12 @@ footer .links-container .linker ul a:visited {
   box-shadow: 0 0 20px hsla(0, 0%, 0%, 0.5);
   height: 140px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: stretch;
   flex-wrap: nowrap;
   padding: 0 10px;
 }
 .regist-area .selecter {
-  flex-basis: 25%;
   font-size: 17px;
   font-weight: bold;
   padding: 10px;
@@ -216,15 +215,18 @@ footer .links-container .linker ul a:visited {
 .regist-area .selecter input:active {
   border: 2px solid #2599ee;
 }
+.regist-area .selecter .item-selected {
+  color: black;
+  font-weight: bold;
+}
 .regist-area button {
-  flex-basis: 25%;
+  width: 100%;
   border: 2px solid #2599ee;
   font-size: 17px;
   background-color: #2599ee;
   color: white;
-  border-radius: 15px;
+  border-radius: 25px;
   padding: 0 5px;
-  height: 40px;
   align-self: center;
   line-height: 40px;
 }
@@ -335,8 +337,9 @@ footer .links-container .linker ul a:visited {
 定义动画属性,此处只需引入需要的属性，不需要的不能引入，否则会报错 
 */
 .year-calendar {
+  z-index: 2;
   position: absolute;
-  top: 30px;
+  top: 40px;
   left: -2px;
   width: 350px;
   height: 150px;
@@ -352,7 +355,6 @@ footer .links-container .linker ul a:visited {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2px;
-  color: var(--color-txt);
 }
 .year-calendar .years > div {
   border-radius: 8px;
@@ -380,6 +382,10 @@ footer .links-container .linker ul a:visited {
   display: block;
   animation: myfadeIn 0.1s 1;
 }
+.select:hover > .school-container {
+  display: block;
+  animation: myfadeIn 0.1s 1;
+}
 .course {
   animation: myfadeIn 0.5s 1;
 }
@@ -402,4 +408,120 @@ footer .links-container .linker ul a:visited {
 .selected:hover > .year-calendar {
   display: block;
   animation: myfadeIn 0.1s 1;
+}
+.selected:hover > .school-container {
+  display: block;
+  animation: myfadeIn 0.1s 1;
+}
+.school-container {
+  position: absolute;
+  top: 40px;
+  left: -2px;
+  width: 490px;
+  height: 255px;
+  z-index: 2;
+  background-color: white;
+  border: 2px solid #f0f0f0;
+  border-top: none;
+  border-radius: 10px;
+  box-shadow: 0px 15px 10px 5px rgba(100, 100, 111, 0.2);
+  padding: 10px;
+  display: none;
+}
+.school-container section {
+  box-sizing: border-box;
+  padding: 10px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.school-container section .area-selecter {
+  height: 100%;
+  padding: 5px 10px;
+  flex-basis: 30%;
+  overflow: auto;
+  border-right: 2px solid #f0f0f0;
+}
+.school-container section .area-selecter::-webkit-scrollbar {
+  width: 0;
+}
+.school-container section .area-selecter div {
+  height: 40px;
+}
+.school-container section .schools {
+  flex-basis: 70%;
+  padding: 5px;
+  height: 100%;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+.school-container section .schools::-webkit-scrollbar {
+  width: 0;
+}
+.school-container section .schools > div {
+  padding: 5px;
+  border-radius: 8px;
+  border: 2px solid white;
+}
+.school-container section .schools > div:hover {
+  border: 2px solid #2599ee;
+  font-weight: bold;
+}
+.prompt {
+  position: absolute;
+  border-radius: 10px;
+  left: 155px;
+  right: 155px;
+  top: 534px;
+  height: 40px;
+  background-color: #a2ff8c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  animation: myfadeIn 0.3s 1;
+}
+.error {
+  animation: myfadeIn 0.3s 1;
+  background-color: #ff969a;
+}
+.registed {
+  position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  left: 155px;
+  right: 155px;
+  top: 380px;
+  box-shadow: 0 0 20px hsla(0, 0%, 0%, 0.5);
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 0 10px;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+.registed div {
+  flex-basis: 90%;
+}
+.registed button {
+  flex-basis: 10%;
+  border: none;
+  background-color: transparent;
+  font-size: 17px;
+  color: gray;
+  padding: 0 5px;
+  align-self: flex-end;
+  justify-self: flex-end;
+  line-height: 40px;
+}
+.registed button:hover {
+  color: #2599ee;
+  background-color: white;
 }

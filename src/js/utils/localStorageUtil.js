@@ -1,10 +1,10 @@
 const STORAGE_KEY = '__indexData';   //当前网页数据
 if(!window.localStorage){
     alert("浏览器不支持localstorage");
-} 
+}
 export default {
     getStorage() {
-        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        return JSON.parse( localStorage.getItem(STORAGE_KEY) || '{}' );
     },
     setItem(key, value, module_name) {
         if(module_name) {
@@ -19,12 +19,11 @@ export default {
     }, 
     getItem(key, module_name) {
         if(module_name) {
-            let val = this.getItem();
+            let val = this.getItem(module_name);
             if(val) {
                 return val[key];
             }
         }
-        console.log(this.getStorage()[key]);
         return this.getStorage()[key];
     },
     clear(key, module_name) {

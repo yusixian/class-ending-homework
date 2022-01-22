@@ -95,7 +95,7 @@ header {
     }
 }
 main{
-    margin-top: 80px;
+    margin-top: 120px;
     .flex-column();
     gap: 30px;
     padding: 10px @main-space; 
@@ -210,13 +210,12 @@ footer {
     box-shadow: @shadow;
     height: @regist-area-height;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: stretch;
     flex-wrap: nowrap;
     // overflow: auto;
     padding: 0 10px;
     .selecter {
-        flex-basis: 25%;
         // width: 60px;
         font-size: @selecter-font-size;
         font-weight: bold;
@@ -236,17 +235,19 @@ footer {
         input:hover,input:active {
             border: @selecter-border;
         }
+        .item-selected {
+            color: black;
+            font-weight: bold;
+        }
     }
     button {
-        flex-basis: 25%;
+        width: 100%;
         border:2px solid @btn-color;
         font-size: @selecter-font-size;
         background-color: @btn-color;
         color:white;
-        border-radius: 15px;
+        border-radius: 25px;
         padding: 0 5px;
-        // width: 100px;
-        height: 40px;
         align-self: center;
         line-height: 40px;
     }
@@ -373,8 +374,9 @@ footer {
 //     .animation(myDongHua,5s,infinite); // 1|动画名 2|动画时间 3|播放函数(比如：循环等)
 // }
 .year-calendar {
+    z-index: 2;
     position: absolute;
-    top: 30px;
+    top: 40px;
     left: -2px;
     width: @picker-width;
     height: @picker-height;
@@ -392,7 +394,6 @@ footer {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 2px;
-        color: var(--color-txt);
         &>div {
             border-radius: 8px;
             border: 2px solid white;
@@ -420,6 +421,10 @@ footer {
             display: block;
             .animation(myfadeIn,0.1s,1);
         }
+        &>.school-container {
+            display: block;
+            .animation(myfadeIn,0.1s,1);
+        }
     }
 }
 //这里给之前的课程列表加了渐进动画
@@ -430,4 +435,126 @@ footer {
     .select();
     color: black;
     background-color: white;
+}
+.school-container {
+    position: absolute;
+    top: 40px;
+    left: -2px;
+    width: @picker-width*1.4;
+    height: @picker-height*1.7;
+    z-index: 2;
+    background-color: @picker-bgcolor;
+
+    border: 2px solid @selecter-color;
+    border-top: none;
+    border-radius: 10px;
+    box-shadow: @picker-shadow;
+
+    padding: 10px;
+    display: none;
+    section {
+        box-sizing: border-box;
+        padding: 10px;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .area-selecter {
+            height: 100%;
+            padding: 5px 10px;
+            flex-basis: 30%;
+            overflow: auto;
+            &::-webkit-scrollbar {
+                width: 0;
+            }
+            div {
+                height: 40px;// 便于控制滚动
+            }
+            border-right: 2px solid #f0f0f0;
+            
+        }
+        .schools {
+            flex-basis: 70%;
+            padding: 5px;
+            height: 100%;
+            overflow: auto;
+            &::-webkit-scrollbar {
+                width: 0;
+            }
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            &>div {
+                padding: 5px;
+                border-radius: 8px;
+                border: 2px solid white;
+            }
+            &>div:hover {
+                border: @selecter-border;
+                font-weight: bold;
+            }
+        }
+    }
+    
+}
+@prompt-color-error: rgb(255,150,154);
+@prompt-color-success: rgb(162,255,140);
+.prompt {
+    position: absolute;
+    border-radius: 10px;
+
+    left: @regist-area-space;
+    right: @regist-area-space;
+    top: @head-height + @regist-area-height*0.6;
+    height: 40px;
+    background-color: @prompt-color-success;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    .animation(myfadeIn,0.3s,1);
+}
+.error {
+    .animation(myfadeIn,0.3s,1);
+    background-color: @prompt-color-error;
+}
+.registed {
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    left: @regist-area-space;
+    right: @regist-area-space;
+    top: @head-height - @regist-area-height*0.5;
+    
+    box-shadow: @shadow;
+    height: @regist-area-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    padding: 0 10px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    div {
+        flex-basis: 90%;
+    }
+    button {
+        flex-basis: 10%;
+        border: none;
+        background-color: transparent;
+        font-size: @selecter-font-size;
+        color:gray;
+        padding: 0 5px;
+        align-self: flex-end;
+        justify-self: flex-end;
+        line-height: 40px;
+    }
+    button:hover {
+        color: @btn-color;
+        background-color: white;
+    }
 }
