@@ -1,0 +1,116 @@
+@import "../animation.less";
+@picker-shadow:  0px 10px 10px 5px rgba(100, 100, 111, 0.2) ;
+@picker-bgcolor:  white;
+@picker-border-color:#f0f0f0;
+@picker-border: 2px solid @picker-border-color;
+@placeholder-bgcolor:#f0f0f0;
+@item-hover-bordercol: #2599ee;
+@item-hover-border: 2px solid @item-hover-bordercol;
+
+@picker-width:  400px;
+@picker-height:  180px;
+
+.picker {
+    z-index: 3;
+    position: absolute;
+    top: 100%;
+    left: -2px;
+    background-color: @picker-bgcolor;
+    border: @picker-border;
+    border-radius: 10px;
+    box-shadow: @picker-shadow;
+    padding: 10px;
+    display: none;
+    .items {
+        color: black;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+        overflow: auto;
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+        &>div {
+            border-radius: 8px;
+            border: 2px solid @picker-bgcolor;
+        }
+        &>div:hover {
+            border: @item-hover-border;
+            text-shadow:0px 0px 1px black;
+        }
+    }
+}
+
+.picker .wrap{
+    box-sizing: border-box;
+    height: @picker-height;
+    width: @picker-width;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .areas {
+        height: 100%;
+        flex-basis: 30%;
+        overflow: auto;
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+        div {
+            height: 40px;// 便于控制滚动
+        }
+        border-right: 2px solid #f0f0f0;
+    }
+    .items {
+        flex-basis: 70%;
+        padding: 5px;
+        height: 100%;
+        overflow: auto;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px;
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+        &>div {
+            padding: 5px;
+            border-radius: 8px;
+            border: 2px solid white;
+        }
+        &>div:hover {
+            border: @item-hover-border;
+            font-weight: bold;
+        }
+    }
+    
+}
+.select {
+    position: relative;
+    width: 100%;
+    font-weight: normal;
+    line-height: 40px;
+    text-align: center;
+
+    color: #757575;
+    border-radius: 10px;
+    border: @picker-border;
+    background-color: @placeholder-bgcolor;
+    &:hover{
+        background-color: @picker-bgcolor;
+        &>.picker {
+            display: flex;
+            .animation(myfadeIn,0.2s,1);
+        }
+    }
+}
+
+.item-selected {
+    color: black;
+    font-weight: bold;
+}
+.selected {
+    .select();
+    color: black;
+    background-color: white;
+}

@@ -1,0 +1,19 @@
+@import "../animation.less";
+@prompt-color-error: rgb(255,150,154);
+@prompt-color-success: rgb(162,255,140);
+.prompt {
+    // position: absolute;
+    border-radius: 10px;
+    margin: 5px 5%;
+    background-color: @prompt-color-success;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px 10px;
+    .animation(myfadeIn,0.3s,1);
+}
+.error {
+    .animation(myfadeIn,0.3s,1);
+    background-color: @prompt-color-error;
+}

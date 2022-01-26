@@ -1,7 +1,7 @@
+@import "../component/animation.less";
 @head-height:450px;
 @nav-height:50px;
 @nav-content-height: 1000px;
-@regist-area-height: 140px; // 高度
 @footer-height:150px;
 
 @main-imageSize: 120px;
@@ -30,18 +30,24 @@
     justify-content: center;
 }
 body {
+    .flex-column();
+    align-items: stretch;
+    background-color: #f5f5f5;
+    width: 100%;
     margin: 0;
+    gap:20px;
 }
 header {
     height: @head-height;
     background: @head-bgimgURL no-repeat;
-    background-size: 100% auto;
+    // background-size: 100% auto;
+    background-size: cover;
     .header-title {
         font-size: @header-font-size;
         color: white;
         text-shadow: @shadow;
         text-align: center;
-        margin-top: 140px;
+        margin-top: 130px;
     }
 }
 .nav-container {
@@ -94,11 +100,12 @@ header {
         }
     }
 }
+
+
 main{
-    margin-top: 120px;
     .flex-column();
     gap: 30px;
-    padding: 10px @main-space; 
+    padding: 10px 10%; 
     h1{
         font-size: @main-h1-font-size;
     }
@@ -119,6 +126,7 @@ main{
         .flex-column();
         gap:20px;
         .course {
+            .animation(myfadeIn,0.5s,1);
             display:  flex;
             justify-content: flex-start;
             align-items: stretch;
@@ -142,7 +150,7 @@ main{
 footer {
     height: @footer-height;
     background-color: @footer-bgcolor;
-    padding: 20px @main-space;
+    padding: 20px 5%;
     @media screen and (max-width: 840px){
         height: @footer-height*2;
     }
@@ -189,6 +197,7 @@ footer {
 }
 
 // step2:选择区域&课程筛选
+@register-height:150px;
 @selecter-color:#f0f0f0;
 @selecter-hover-color:#bfbfbf;
 @btn-color: #2599ee;
@@ -199,29 +208,38 @@ footer {
 @underline-active-color: #434343; 
 @underline: 2px solid @underline-color; 
 @underline-active: 4px solid @underline-active-color; 
-.regist-area {
-    position: absolute;
-    background-color: white;
-    border-radius: 10px;
-    left: @regist-area-space;
-    right: @regist-area-space;
-    top: @head-height - @regist-area-height*0.5;
-    // width: calc(100%-@regist-area-space*2);
+.register-container {
     box-shadow: @shadow;
-    height: @regist-area-height;
+    border-radius: 10px;
+    background-color: white;
+    height: @register-height;
+    margin: 0 5%;
+    margin-top: -@register-height*0.5;
+    @media screen and (max-width:600px) {
+        height: @register-height*1.4;
+    }
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+}
+.regist-area {
+    // background-color: salmon;
+    width: 100%;
+    height: @register-height;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     flex-wrap: nowrap;
-    // overflow: auto;
-    padding: 0 10px;
+    padding: 5px;
+    gap: 10px;
     .selecter {
         // width: 60px;
-        font-size: @selecter-font-size;
-        font-weight: bold;
-        padding: 10px;
         .flex-column();
         align-items: stretch;
+
+        font-size: @selecter-font-size;
+        font-weight: bold;
+        padding: 5px;
         gap:10px;
         input {
             width: 100%;
@@ -235,18 +253,15 @@ footer {
         input:hover,input:active {
             border: @selecter-border;
         }
-        .item-selected {
-            color: black;
-            font-weight: bold;
-        }
     }
     button {
+        margin: 0 5px;
         width: 100%;
         border:2px solid @btn-color;
         font-size: @selecter-font-size;
         background-color: @btn-color;
         color:white;
-        border-radius: 25px;
+        border-radius: 15px;
         padding: 0 5px;
         align-self: center;
         line-height: 40px;
@@ -266,7 +281,6 @@ footer {
         margin: 0;
         padding: 0;
         border-bottom: @underline;
-        transition: all 2s ease-in-out;
         li {
             float: left;
             font-size: 16px;
@@ -275,6 +289,9 @@ footer {
             margin-bottom: -3px;
             text-align: center;
             width: 80px;
+            @media screen and (max-width: 600px) {
+                width: 40px;
+            }
             &:hover {
                 a, a.vis{
                     color: #2599ee;
@@ -321,221 +338,16 @@ footer {
     }    
 }
 
-// step3:日期控件
-@picker-shadow:  0px 15px 10px 5px rgba(100, 100, 111, 0.2) ;
-@picker-bgcolor:  white;
-@picker-width:  350px;
-@picker-height:  150px;
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translate3d(-100%, 0, 0);
-    }
-
-    to {
-        opacity: 1;
-        transform: none;
-    }
-}
-.fadeIn(@DHname){
-    @keyframes @DHname {
-        0% {
-            opacity: 0; /*初始状态 透明度为0*/
-        }
-        20%{
-            opacity: .2;
-        }
-        50% {
-            opacity: .5; /*中间状态 透明度为0.5*/
-        }
-        70%{
-            opacity: .7;
-        }
-        100% {
-            opacity: 1; /*结尾状态 透明度为1*/
-        }
-    } 
-};
-
-/* 调用定义的动画（传入实参name）*/
-.fadeIn(myfadeIn); // 名称
-
-/* 
-定义动画属性,此处只需引入需要的属性，不需要的不能引入，否则会报错 
-*/
-.animation(@animation-name,@animation-duration,@animation-iteration-count){
-    animation:  @arguments;
-}
-// /* 在样式中引入animation（注意参数即属性）*/
-// .divBackGroud{
-//     width: 100%;
-//     height: 300px;
-//     background-color:red;
-//     .animation(myDongHua,5s,infinite); // 1|动画名 2|动画时间 3|播放函数(比如：循环等)
-// }
-.year-calendar {
-    z-index: 2;
-    position: absolute;
-    top: 40px;
-    left: -2px;
-    width: @picker-width;
-    height: @picker-height;
-
-    background-color: @picker-bgcolor;
-
-    border: 2px solid @selecter-color;
-    border-top: none;
-    border-radius: 10px;
-    box-shadow: @picker-shadow;
-
-    padding: 30px 10px 5px;
-    display: none;
-    .years {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2px;
-        &>div {
-            border-radius: 8px;
-            border: 2px solid white;
-        }
-        &>div:hover {
-            border: @selecter-border;
-            font-weight: bold;
-        }
-    }
-}
-.select {
-    position: relative;
-    width: 100%;
-    font-weight: normal;
-    line-height: 40px;
-    text-align: center;
-
-    color: #757575;
-    border-radius: 10px;
-    border: 2px solid @selecter-color;
-    background-color: @selecter-color;
-    &:hover{
-        background-color: @picker-bgcolor;
-        &>.year-calendar {
-            display: block;
-            .animation(myfadeIn,0.1s,1);
-        }
-        &>.school-container {
-            display: block;
-            .animation(myfadeIn,0.1s,1);
-        }
-    }
-}
-//这里给之前的课程列表加了渐进动画
-.course {
-    .animation(myfadeIn,0.5s,1);
-}
-.selected {
-    .select();
-    color: black;
-    background-color: white;
-}
-.school-container {
-    position: absolute;
-    top: 40px;
-    left: -2px;
-    width: @picker-width*1.4;
-    height: @picker-height*1.7;
-    z-index: 2;
-    background-color: @picker-bgcolor;
-
-    border: 2px solid @selecter-color;
-    border-top: none;
-    border-radius: 10px;
-    box-shadow: @picker-shadow;
-
-    padding: 10px;
-    display: none;
-    section {
-        box-sizing: border-box;
-        padding: 10px;
-        height: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .area-selecter {
-            height: 100%;
-            padding: 5px 10px;
-            flex-basis: 30%;
-            overflow: auto;
-            &::-webkit-scrollbar {
-                width: 0;
-            }
-            div {
-                height: 40px;// 便于控制滚动
-            }
-            border-right: 2px solid #f0f0f0;
-            
-        }
-        .schools {
-            flex-basis: 70%;
-            padding: 5px;
-            height: 100%;
-            overflow: auto;
-            &::-webkit-scrollbar {
-                width: 0;
-            }
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2px;
-            &>div {
-                padding: 5px;
-                border-radius: 8px;
-                border: 2px solid white;
-            }
-            &>div:hover {
-                border: @selecter-border;
-                font-weight: bold;
-            }
-        }
-    }
-    
-}
-@prompt-color-error: rgb(255,150,154);
-@prompt-color-success: rgb(162,255,140);
-.prompt {
-    position: absolute;
-    border-radius: 10px;
-
-    left: @regist-area-space;
-    right: @regist-area-space;
-    top: @head-height + @regist-area-height*0.6;
-    height: 40px;
-    background-color: @prompt-color-success;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 5px;
-    .animation(myfadeIn,0.3s,1);
-}
-.error {
-    .animation(myfadeIn,0.3s,1);
-    background-color: @prompt-color-error;
-}
 .registed {
-    position: absolute;
-    background-color: white;
-    border-radius: 10px;
-    left: @regist-area-space;
-    right: @regist-area-space;
-    top: @head-height - @regist-area-height*0.5;
-    
-    box-shadow: @shadow;
-    height: @regist-area-height;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap;
+    overflow: auto;
+    // flex-wrap: nowrap;
+    padding: 5px;
+    gap: 5px;
 
-    padding: 0 10px;
     font-size: 40px;
     font-weight: bold;
     text-align: center;
@@ -555,6 +367,5 @@ footer {
     }
     button:hover {
         color: @btn-color;
-        background-color: white;
     }
 }

@@ -1,0 +1,29 @@
+.fadeIn(@DHname){
+    @keyframes @DHname {
+        0% {
+            opacity: 0; /*初始状态 透明度为0*/
+        }
+        20%{
+            opacity: .2;
+        }
+        50% {
+            opacity: .5; /*中间状态 透明度为0.5*/
+        }
+        70%{
+            opacity: .7;
+        }
+        100% {
+            opacity: 1; /*结尾状态 透明度为1*/
+        }
+    } 
+};
+
+/* 调用定义的动画（传入实参name）*/
+.fadeIn(myfadeIn); // 名称
+
+/* 
+定义动画属性,此处只需引入需要的属性，不需要的不能引入，否则会报错 
+*/
+.animation(@animation-name,@animation-duration,@animation-iteration-count){
+    animation:  @arguments;
+}

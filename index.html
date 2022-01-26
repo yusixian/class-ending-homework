@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="author" content="cos">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"> 
-    <link href="src/css/style.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+
+    <link href="./src/css/style.css" rel="stylesheet" type="text/css" />
     <!-- <script src="/dist/bundle.js"></script> -->
     <title>结课作业</title>
 </head>
@@ -23,27 +24,16 @@
             </nav>
         </div>
         <div class="header-title">百度前端训练营2021开营了，赶紧报名吧！</div>
-        <div class="regist-area">
+    </header>
+    <div class="register-container">
+       <div class="regist-area">
             <div class="selecter" style="width: 25%;">
                 选择您的学校
-                <div id="school-picker" class="select">
-                    请选择学校
-                    <div class="school-container">
-                        <section>
-                            <div class="area-selecter"></div>
-                            <div class="schools"></div>
-                        </section>
-                    </div>
-                </div>
+                <div id="school-picker" class="select"></div>
             </div>
             <div class="selecter" style="width: 20%;">
                 选择您的入学年份
-                <div id="date-picker" class="select">
-                    选择入学年份
-                    <div class="year-calendar">
-                        <div class="years"></div>
-                    </div>
-                </div>
+                <div id="date-picker" class="select"></div>
             </div>
             <div class="selecter" style="width: 35%;">
                 输入您的电子邮箱
@@ -57,7 +47,7 @@
             <div>您已完成报名，开始您的学习之旅吧!</div>
             <button id='re-regist-btn'>重新报名</button>
         </div> 
-    </header>
+    </div>
     <div class="prompt" style="display: none;"></div>
     <main>
         <section>

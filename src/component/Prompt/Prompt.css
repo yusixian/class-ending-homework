@@ -1,0 +1,39 @@
+/* 调用定义的动画（传入实参name）*/
+@keyframes myfadeIn {
+  0% {
+    opacity: 0;
+    /*初始状态 透明度为0*/
+  }
+  20% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+    /*中间状态 透明度为0.5*/
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+    /*结尾状态 透明度为1*/
+  }
+}
+/* 
+定义动画属性,此处只需引入需要的属性，不需要的不能引入，否则会报错 
+*/
+.prompt {
+  border-radius: 10px;
+  margin: 5px 5%;
+  background-color: #a2ff8c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px 10px;
+  animation: myfadeIn 0.3s 1;
+}
+.error {
+  animation: myfadeIn 0.3s 1;
+  background-color: #ff969a;
+}
