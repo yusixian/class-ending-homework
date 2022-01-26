@@ -10,7 +10,7 @@ window.onload = function() {// 加载完后执行脚本
     for(let i = 0; i < 4; ++i) {
         let fn = document.getElementById(`fliter-${i}`);
         fn.addEventListener('click', function() {
-            console.log(`click id = ${this.id}`);
+            // console.log(`click id = ${this.id}`);
             btnEvent.fliter(i, this);
         });
     }

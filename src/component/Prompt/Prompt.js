@@ -15,12 +15,12 @@ export class Prompt {
     successMsg = '这是成功的提示';
     errorMsg = '这是失败的提示';
     constructor(name, successMsg, errorMsg) {
-        console.log(name);
+        // console.log(name);
         this.name = name;
         if(successMsg) this.successMsg = successMsg;
         if(errorMsg) this.errorMsg = errorMsg;
         this.root = document.querySelector(name);
-        console.log(this.root);
+        // console.log(this.root);
     }
     promptSuccess(school, year, email) {
         if(!this.root) return;

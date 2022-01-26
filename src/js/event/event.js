@@ -13,7 +13,7 @@ export default {
         }
     },  
     refreshCourseList(id) {
-        console.log(`refresh by ${id}`);
+        // console.log(`refresh by ${id}`);
         let courseList = document.getElementById('course-list');
         if(id === 0) {
             this.displayCourseListAll(false);
@@ -28,7 +28,7 @@ export default {
         }
     },
     fliter(id, nowNode) {    
-        console.log(id);
+        // console.log(id);
         if(!nowNode.className) {
             let pNode = nowNode.parentNode;
             let activeNode = pNode.getElementsByClassName('active')[0];
@@ -40,11 +40,11 @@ export default {
     refreshRegisterArea() { //报名成功，刷新报名区域
         let regis = document.querySelector('.regist-area');
         regis.style = 'display:none;';
-        console.log('refresh register!');
+        // console.log('refresh register!');
         let rere = document.querySelector('.registed');
         rere.style = 'display:flex';
         document.getElementById('re-regist-btn').addEventListener('click', function() {
-            console.log('click rebtn');
+            // console.log('click rebtn');
             rere.style = 'display:none;';
             regis.style = 'display:flex;';
         });
@@ -52,7 +52,7 @@ export default {
     submitInfo(prompt) {
         let email = document.getElementById('email-picker');
         let errorMsg = null;
-        console.log('click!', email.value);
+        // console.log('click!', email.value);
         //判断邮箱是否有效
         if(!checkUtil.isEmailValid(email.value)) {
             errorMsg = '邮箱地址不符合要求(yourname@host.com) ，请重新输入';
