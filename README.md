@@ -8,6 +8,7 @@ QQ：3450414733
 - 完成特点：尽量保证了和设计稿的基本一致性，加入了css动画实现筛选和选择框移入时的渐入效果，实现了当选择的学校所在省市靠后时，调整左侧区域的滚动高度。在用户层面改善体验。利用本地LocalStorage进行存储并封装了相应通用工具。年份可选择的范围，和界面是解耦，通过js中的常量自定义开始和结束年份。
 - 在线预览链接：https://cosine.ren/html/class-ending-homework/index.html
 - 完成了如下功能：
+<<<<<<< HEAD
   - step1：完成静态页面的布局及样式开发
   - step2：实现报名区域、课程安排的筛选功能
   - step3：实现点击弹出年份选择面板，并增加弹出框和课程的渐进动画
@@ -38,6 +39,14 @@ prompt.promptError(errorMsg);
 - 组件事件包括提示Prompt事件（promptSuccess、promptError）、选择框Picker事件（refreshItems、selectItem）等
 - 全局事件包括课程筛选事件（displayCourseListAll、refreshCourseList、fliter）、报名提交事件（refreshRegisterArea、submitInfo）
 
+=======
+- step1：完成静态页面的布局及样式开发
+- step2：实现报名区域、课程安排的筛选功能
+- step3：实现点击弹出年份选择面板，并增加弹出框和课程的渐进动画
+- step4：实现选择学校面板，左侧选中某个省市时，右侧的院校List会联动发生改变，只显示该省市下的院校。省市保证了至少10个，至少有1个省市包含的院校超过20个。
+- step5：实现报名提交的邮箱的正则验证与提示，报名成功后的重新报名选项。
+![大作业演示](%E5%A4%A7%E4%BD%9C%E4%B8%9A%E6%BC%94%E7%A4%BA.gif)
+>>>>>>> 88fd71f0853aea85ec84244d5b447b6e6add5cf1
 ## 结课作业基础版
 
 通过使用HTML、CSS、JavaScript等技术，实现如设计稿中的示例，实现一个HTML页面
